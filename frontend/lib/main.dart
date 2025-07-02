@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
 import 'screens/login.dart';
+import 'screens/home.dart';
+import 'package:provider/provider.dart';
+import 'providers/auth_provider.dart';
 
 void main() {
-  runApp(const TalentFlowApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => AuthProvider(),
+      child: const TalentFlowApp(),
+    ),
+  );
 }
 
 class TalentFlowApp extends StatelessWidget {
@@ -10,10 +18,14 @@ class TalentFlowApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'TalentFlow',
-      theme: ThemeData(primarySwatch: Colors.blue),
-      home: const LoginScreen(),
+    return Consumer<AuthProvider>(
+      builder: (context, auth, _) {
+        return MaterialApp(
+          title: 'TalentFlow',
+          theme: ThemeData(primarySwatch: Colors.blue),
+          home: auth.isLoggedIn ? const HomeScreen() : const LoginScreen(),
+        );
+      },
     );
   }
 }
