@@ -7,7 +7,22 @@ class RecruiterDashboard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Recruiter Dashboard')),
-      body: const Center(child: Text('Recruiter features here')),
+      body: ListView(
+        children: const [
+          ListTile(
+            leading: Icon(Icons.add),
+            title: Text('Post a new job'),
+          ),
+          ListTile(
+            leading: Icon(Icons.work),
+            title: Text('Manage job postings'),
+          ),
+          ListTile(
+            leading: Icon(Icons.people),
+            title: Text('Review applicants'),
+          ),
+        ],
+      ),
     );
   }
 }

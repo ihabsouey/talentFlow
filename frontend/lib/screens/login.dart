@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'candidate_dashboard.dart';
+import 'recruiter_dashboard.dart';
 import 'package:http/http.dart' as http;
 import 'candidate_dashboard.dart';
 import 'signup.dart';
@@ -76,6 +78,28 @@ class _LoginScreenState extends State<LoginScreen> {
               child: const Text('Login'),
             ),
             ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const CandidateDashboard()),
+                );
+              },
+              child: const Text('Login as Candidate'),
+            ),
+            const SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const RecruiterDashboard()),
+                );
+              },
+              child: const Text('Login as Recruiter'),
+            ),
+            const SizedBox(height: 16),
+            TextButton(
               onPressed: () {
                 Navigator.push(
                   context,
