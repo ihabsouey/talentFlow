@@ -1,34 +1,57 @@
 # TalentFlow
 
-Ce dépôt contient une ébauche d'application multi-plateforme pour le projet **TalentFlow**, destinée à révolutionner l'écosystème Alternance-Emploi en France.
+Ce dépôt contient l'ossature d'une application multi‑plateforme pour le projet **TalentFlow**, visant à faciliter la mise en relation entre candidats et recruteurs.
 
-- **Backend** : construit avec Django et fournit les API nécessaires à l'authentification et à la gestion des profils candidats/recruteurs.
-- **Frontend** : application Flutter cible Android/iOS et le web, avec des écrans simples de connexion et d'inscription.
+- **Backend** : Django fournit les API d'authentification et de gestion des profils.
+- **Frontend** : Flutter cible Android, iOS et le web.
 
-## Démarrage rapide
+## Aperçu des dossiers
 
-1. Installez les dépendances Python et Django dans un environnement virtuel.
-2. Dans le dossier `backend`, exécutez `python manage.py migrate` puis `python manage.py runserver`.
-   Les annonces sont gérées via l'application `annonces` et proposent un CRUD complet accessible sur `/annonces/`.
-3. Installez Flutter et exécutez `flutter run` depuis le dossier `frontend` pour lancer l'application.
+- `backend/` – code et configuration du serveur Django
+- `frontend/` – application Flutter
 
-Ces instructions sont indicatives et nécessitent que votre poste dispose de Python, Django et Flutter.
+## Prérequis backend
 
-## Configuration des variables d'environnement
+- Python 3.8 ou plus récent
+- `pip` et, de préférence, `virtualenv`
+- Remplacez `SECRET_KEY` dans `backend/talentflow/settings.py` ou définissez la variable d'environnement `DJANGO_SECRET_KEY`
 
-Avant de démarrer, copiez le fichier `.env.example` vers `.env` puis renseignez vos valeurs :
+## Installation du backend
 
 ```bash
-cp .env.example .env
-# éditez .env puis exportez les variables dans votre shell
-export $(grep -v '^#' .env | xargs)
+cd backend
+python -m venv venv
+source venv/bin/activate
+pip install django
+python manage.py migrate
+python manage.py runserver
 ```
 
-`SECRET_KEY` doit contenir une clé Django secrète, `DEBUG` peut valoir `True` ou `False`, et `ALLOWED_HOSTS` liste les domaines autorisés séparés par des virgules.
+## Installation de Flutter
 
-## Running Tests
+1. Téléchargez Flutter depuis [flutter.dev](https://flutter.dev/docs/get-started/install)
+2. Ajoutez `flutter/bin` à votre `PATH`
+3. Lancez `flutter doctor` pour télécharger les composants nécessaires
+4. Installez les dépendances de l'application :
 
-* **Backend**: from the `backend` directory run `python manage.py test` to
-  execute Django unit tests.
-* **Frontend**: ensure Flutter is installed, then run `flutter test` inside the
-  `frontend` directory to run widget tests.
+```bash
+cd frontend
+flutter pub get
+```
+
+## Exécution de l'application
+
+```bash
+cd frontend
+flutter run
+```
+
+## Contribuer
+
+Les contributions sont bienvenues via pull request.
+
+1. Forkez le dépôt et créez une branche pour vos modifications
+2. Respectez PEP 8 pour le Python et exécutez `dart format` sur le code Flutter
+3. Ouvrez une pull request détaillant votre apport
+
+
