@@ -7,7 +7,22 @@ class CandidateDashboard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Candidate Dashboard')),
-      body: const Center(child: Text('Candidate features here')), 
+      body: ListView(
+        children: const [
+          ListTile(
+            leading: Icon(Icons.search),
+            title: Text('Search for jobs'),
+          ),
+          ListTile(
+            leading: Icon(Icons.description),
+            title: Text('View your applications'),
+          ),
+          ListTile(
+            leading: Icon(Icons.person),
+            title: Text('Manage your profile'),
+          ),
+        ],
+      ),
     );
   }
 }

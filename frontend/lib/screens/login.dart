@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'candidate_dashboard.dart';
+import 'recruiter_dashboard.dart';
 import 'signup.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -13,6 +15,28 @@ class LoginScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const CandidateDashboard()),
+                );
+              },
+              child: const Text('Login as Candidate'),
+            ),
+            const SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const RecruiterDashboard()),
+                );
+              },
+              child: const Text('Login as Recruiter'),
+            ),
+            const SizedBox(height: 16),
+            TextButton(
               onPressed: () {
                 Navigator.push(
                   context,
