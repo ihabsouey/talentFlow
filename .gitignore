@@ -11,3 +11,4 @@ packages
 
 # Others
 .DS_Store
+.env

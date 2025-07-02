@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'candidate_dashboard.dart';
 import 'signup.dart';
 import 'home.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
-  @override
   _LoginScreenState createState() => _LoginScreenState();
 }
 

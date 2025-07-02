@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'login.dart';
@@ -76,6 +78,7 @@ class _SignupScreenState extends State<SignupScreen> {
               child: const Text('Signup'),
             ),
           ],
+
         ),
       ),
     );

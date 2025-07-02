@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Annonces</h1>
+<a href="{% url 'annonce_create' %}">Nouvelle annonce</a>
+<ul>
+  {% for annonce in annonces %}
+  <li>
+    <a href="{% url 'annonce_detail' annonce.pk %}">{{ annonce.title }}</a>
+  </li>
+  {% empty %}
+  <li>Aucune annonce.</li>
+  {% endfor %}
+</ul>
+{% endblock %}
