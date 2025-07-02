@@ -14,6 +14,18 @@ Ce dépôt contient une ébauche d'application multi-plateforme pour le projet *
 
 Ces instructions sont indicatives et nécessitent que votre poste dispose de Python, Django et Flutter.
 
+## Configuration des variables d'environnement
+
+Avant de démarrer, copiez le fichier `.env.example` vers `.env` puis renseignez vos valeurs :
+
+```bash
+cp .env.example .env
+# éditez .env puis exportez les variables dans votre shell
+export $(grep -v '^#' .env | xargs)
+```
+
+`SECRET_KEY` doit contenir une clé Django secrète, `DEBUG` peut valoir `True` ou `False`, et `ALLOWED_HOSTS` liste les domaines autorisés séparés par des virgules.
+
 ## Running Tests
 
 * **Backend**: from the `backend` directory run `python manage.py test` to
