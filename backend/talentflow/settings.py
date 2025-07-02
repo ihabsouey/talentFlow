@@ -2,9 +2,13 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-SECRET_KEY = 'replace-me'
-DEBUG = True
-ALLOWED_HOSTS = []
+SECRET_KEY = os.environ.get('SECRET_KEY', 'replace-me')
+
+# DEBUG peut être fourni dans l'environnement sous forme de "True", "False", "1" ou "0".
+DEBUG = os.environ.get('DEBUG', 'True').lower() in ['1', 'true', 'yes']
+
+hosts = os.environ.get('ALLOWED_HOSTS', '')
+ALLOWED_HOSTS = [h.strip() for h in hosts.split(',') if h.strip()] if hosts else []
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -14,6 +18,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts',
+    'annonces',
 ]
 
 MIDDLEWARE = [
