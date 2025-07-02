@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Flutter/Dart
+build/
+.dart_tool/
+packages
+.pub/
+
+# Others
+.DS_Store
