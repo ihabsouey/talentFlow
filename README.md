@@ -54,3 +54,4 @@ Les contributions sont bienvenues via pull request.
 2. Respectez PEP 8 pour le Python et exécutez `dart format` sur le code Flutter
 3. Ouvrez une pull request détaillant votre apport
 
+
