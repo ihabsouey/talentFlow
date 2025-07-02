@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'candidate_dashboard.dart';
 import 'signup.dart';
+import 'package:provider/provider.dart';
+import '../providers/auth_provider.dart';
 import 'home.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -68,6 +70,12 @@ class _LoginScreenState extends State<LoginScreen> {
               child: const Text('Login'),
             ),
             TextButton(
+              onPressed: () {
+                Provider.of<AuthProvider>(context, listen: false).login();
+              },
+              child: const Text('Login'),
+            ),
+            ElevatedButton(
               onPressed: () {
                 Navigator.push(
                   context,
